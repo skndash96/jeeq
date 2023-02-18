@@ -6,7 +6,7 @@ struct _Question {
 }
 
 fn main() {
-    let mut reader = csv::Reader::from_path("jeeq.csv")
+    let mut reader = csv::Reader::from_path("split/2jab")
         .expect("Failed to parse questions.");
     let mut records = reader
         .records()
@@ -17,4 +17,6 @@ fn main() {
         n += 1;
         println!("{} {:?}", n, rec.get(1).unwrap());
     }
+    //from 1,65,892
 }
+//3,00,000 questions

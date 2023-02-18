@@ -1,5 +1,4 @@
 run = "echo run it on your own"
-hidden = ["target"]
 entrypoint = "src/main.rs"
 
 [packager]
