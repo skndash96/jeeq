@@ -9,8 +9,8 @@ use std::error::Error;
 type Res = Result<String, Box<dyn Error>>;
 
 pub fn get_home() -> Res {
-    let html = fs::read_to_string("views/index.html")?;
-    
+    let html = fs::read_to_string("views/index.min.html")?;
+
     Ok(format!(
         "HTTP/1.1 200 Ok\r\nContent-Length: {}\r\n\r\n{}",
         html.len(),
