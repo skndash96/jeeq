@@ -37,11 +37,17 @@ fn handle_stream(
     mut stream : TcpStream,
     records: Db
 ) {
-    let info = BufReader::new(&stream)
+    let info = match BufReader::new(&stream)
         .lines()
-        .next()
-        .unwrap()
-        .unwrap();//Potential PANIC
+        .next() {
+        Some(line) => line.unwrap_or("".to_string()),
+        None => "".to_string()
+    };
+
+    if info.as_str() == "" {
+        println!("Failed to handle empty stream.");
+        return ();
+    }
 
     let info = &info
         .split(" ")
