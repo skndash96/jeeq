@@ -10,11 +10,14 @@ use types::{ Db, Param, Params };
 
 fn main() {
     let data : Db = db::new_db();
-    
-    let end_point = "0.0.0.0:8080";
-    let listener = TcpListener::bind(end_point).unwrap();
 
-    println!("Jeeqing at end point: {}", end_point);
+    let port = std::env::var("PORT").unwrap_or("8080".to_string());
+
+    let listener = TcpListener::bind(
+        format!("0.0.0.0:{}", &port)
+    ).unwrap();
+
+    println!("Jeeqing at end point: 0.0.0.0:{}", port);
 
     for stream in listener.incoming() {
         if stream.is_ok() {
