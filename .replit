@@ -1,4 +1,4 @@
-run = "echo run it on your own"
+run = "echo Type 'cargo run' yourself"
 entrypoint = "src/main.rs"
 
 [packager]

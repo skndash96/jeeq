@@ -5,5 +5,5 @@
 		pkgs.cargo
 		pkgs.cargo-edit
         pkgs.rust-analyzer
-	];
+    ];
 }
